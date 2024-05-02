@@ -41,3 +41,9 @@ def scale_bar(ax, location=(0.92, 0.95)):
     ax.text(sbx-24500, sby-5000, '0 km', transform=ax.projection, fontsize=8) # add a label at 0 km
 
     return ax
+
+# Loading the Liverpool data
+liverpool_wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wards.shp')
+liverpool_water = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/Water_liverpool.shp')
+liverpool_landuse = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/Landuse_liverpool.shp')
+
