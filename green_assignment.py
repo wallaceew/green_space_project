@@ -68,4 +68,9 @@ ax = plt.axes(projection=li_utm)
 wards_feature = ShapelyFeature(liverpool_wards['geometry'], ni_utm, edgecolor='k', facecolor='w')
 ax.add_feature(wards_feature) # add the features we've created to the map.
 
+# zooming to the area of interest using the boundary of the wards shapefile features and reordering coordinates for presentation
+xmin, ymin, xmax, ymax = liverpool_wards.total_bounds 
+ax.set_extent([xmin-5000, xmax+5000, ymin-5000, ymax+5000], crs=ni_utm) 
+
+
 
