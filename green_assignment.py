@@ -53,5 +53,9 @@ liverpool_wards.head(10)
 # check the CRS of the wards dataset
 liverpool_wards.crs 
 
-ni_utm = ccrs.UTM(30)  # create a Universal Transverse Mercator reference system to transform our data.
-# 30 is the UTM zone that Liverpool falls in
+# create a Universal Transverse Mercator reference system to transform our data
+ni_utm = ccrs.UTM(30)  # 30 is the UTM zone that Liverpool falls in
+
+
+# create a cartopy CRS representation of the CRS associated with the wards dataset
+ccrs.CRS(liverpool_wards.crs) 
