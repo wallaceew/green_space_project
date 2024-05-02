@@ -64,3 +64,8 @@ ccrs.CRS(liverpool_wards.crs)
 myFig = plt.figure(figsize=(8, 8))  
 ax = plt.axes(projection=li_utm)  
 
+# adding the wards outline of Liverpool using cartopy's ShapelyFeature
+wards_feature = ShapelyFeature(liverpool_wards['geometry'], ni_utm, edgecolor='k', facecolor='w')
+ax.add_feature(wards_feature) # add the features we've created to the map.
+
+
