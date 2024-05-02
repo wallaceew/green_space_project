@@ -54,8 +54,13 @@ liverpool_wards.head(10)
 liverpool_wards.crs 
 
 # create a Universal Transverse Mercator reference system to transform our data
-ni_utm = ccrs.UTM(30)  # 30 is the UTM zone that Liverpool falls in
+li_utm = ccrs.UTM(30)  # 30 is the UTM zone that Liverpool falls in
 
 
 # create a cartopy CRS representation of the CRS associated with the wards dataset
 ccrs.CRS(liverpool_wards.crs) 
+
+# create an 8x8 figure (page size in inches) and an axes object in the figure using Liverpool UTM projection where data can be plotted
+myFig = plt.figure(figsize=(8, 8))  
+ax = plt.axes(projection=li_utm)  
+
