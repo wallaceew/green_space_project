@@ -47,3 +47,5 @@ liverpool_wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files
 liverpool_water = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/Water_liverpool.shp')
 liverpool_landuse = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/Landuse_liverpool.shp')
 
+# Inspect the data by showing the first ten rows 
+liverpool_wards.head(10)
