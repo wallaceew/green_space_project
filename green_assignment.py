@@ -49,3 +49,6 @@ liverpool_landuse = gpd.read_file('C:/EGM722/egm722/green_space_project/data_fil
 
 # Inspect the data by showing the first ten rows 
 liverpool_wards.head(10)
+
+# check the CRS of the wards dataset
+liverpool_wards.crs 
