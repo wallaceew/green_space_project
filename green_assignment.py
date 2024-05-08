@@ -74,3 +74,18 @@ ax.set_extent([xmin-5000, xmax+5000, ymin-5000, ymax+5000], crs=ni_utm)
 
 
 
+
+# zonal statistics using rasterstats
+
+# importing libraries
+%matplotlib inline
+
+import numpy as np
+import rasterio as rio
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import rasterstats
+
+
+
