@@ -87,5 +87,17 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import rasterstats
 
+# obtained data LCM data for Liverpool to rasterise and create land cover map
+# find all names of land cover using metadata of LCM.tif online 
+
+# define the landcover class names in a list
+names = ['Broadleaf woodland', 'Coniferous woodland', 'Arable and Horticulture', 'Improved grassland', 
+         'Semi-natural grassland', 'Mountain, heath, bog', 'Saltwater', 'Freshwater', 'Coastal', 
+         'Built-up areas and gardens', 'Neutral Grassland', 'Calcareous Grassland', 'Acid Grassland', 
+         'Heather', 'Heather grassland', 'Fen, Marsh and Swamp', 'Bog', 'Inland Rock', 'Urban', 
+         'Suburban', 'Supra-littoral Rock', 'Supra-littoral Sediment', 'Littoral Rock']
+
+values = range(1, 24)  # Get numbers from 1-23, corresponding to the landcover values
+
 
 
