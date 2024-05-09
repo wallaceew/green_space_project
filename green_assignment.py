@@ -99,5 +99,6 @@ names = ['Broadleaf woodland', 'Coniferous woodland', 'Arable and Horticulture',
 
 values = range(1, 24)  # Get numbers from 1-23, corresponding to the landcover values
 
-
+# Create a dictionary of landcover value/name pairs
+landcover_names = dict(zip(values, names))
 
