@@ -128,3 +128,22 @@ df = pd.DataFrame(data)
 df['wardname'] = df['wardname'].str.replace(" ", "_")
 
 print(df)
+
+# Define a function to count unique landcover classes
+def count_unique(array, names, nodata=0):
+    '''
+    Count the unique elements of an array.
+
+    :param array: Input array
+    :param names: a dict of key/value pairs that map raster values to a name
+    :param nodata: nodata value to ignore in the counting
+
+    :returns count_dict: a dictionary of unique values and counts
+    '''
+    count_dict = dict()  # Create the output dict
+    for val in np.unique(array):  # Iterate over the unique values for the raster
+        if val == nodata:  # If the value is equal to our nodata value, move on to the next one
+            continue
+        count_dict[names[val]] = np.count_nonzero(array == val)
+    return count_dict  # Return the now-populated output dict
+
