@@ -114,3 +114,17 @@ wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wards.shp
 
 # inspect data 
 print(wards)
+
+# getting rid of spaces in ward names 
+
+data = {
+    'wardname': ['Aigburth', 'Childwall', 'Church', 'City Centre North', 'City Centre South', 'Clubmoor East', 'Clubmoor West', 'County', 'Croxteth', 'Croxteth Country Park', 'Dingle', 'Allerton', 'Edge Hill', 'Everton East', 'Everton North', 'Everton West', 'Fazakerley East', 'Fazakerley North', 'Fazakerley West', 'Festival Gardens', 'Garston', 'Gateacre', 'Anfield', 'Grassendale & Cressington', 'Greenbank Park', 'Kensington & Fairfield', 'Kirkdale East', 'Kirkdale West', 'Knotty Ash & Dovecot Park', 'Mossley Hill', 'Much Woolton & Hunts Cross', 'Norris Green', 'Old Swan East', 'Arundel', 'Old Swan West', 'Orrell Park', 'Penny Lane', 'Princes Park', 'Sandfield Park', 'Sefton Park', 'Smithdown', 'Speke', 'Springwood', 'St Michaels', 'Belle Vale', 'Stoneycroft', 'Toxteth', 'Tuebrook Breckside Park', 'Tuebrook Larkhill', 'Vauxhall', 'Walton', 'Waterfront North', 'Waterfront South', 'Wavertree Garden Suburb', 'Wavertree Village', 'Broadgreen', 'West Derby Deysbrook', 'West Derby Leyfield', 'West Derby Muirhead', 'Woolton Village', 'Yew Tree', 'Brownlow Hill', 'Calderstones', 'Canning']
+              }
+
+# creating data frame from data to edit wardname column
+df = pd.DataFrame(data)
+
+# replace spaces in 'wardname' with underscore
+df['wardname'] = df['wardname'].str.replace(" ", "_")
+
+print(df)
