@@ -111,3 +111,6 @@ with rio.open('C:/EGM722/egm722/green_space_project/raster/LCM2015_Liverpool.tif
 
 # Load the Liverpool wards shapefile
 wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wards.shp').to_crs(crs)
+
+# inspect data 
+print(wards)
