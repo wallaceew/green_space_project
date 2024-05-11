@@ -168,4 +168,7 @@ for missing_val in missing_values:
 landcover_count = count_unique(landcover, landcover_names)
 print(landcover_count)  # Show the results
 
-names = [n.title() for n in df['wardname']] # getting a list of ward names using a list comprehension formatted with str.title() for lowercase
+# Getting a list of ward names using a list comprehension formatted with str.title() for lowercase
+names = [n.title() for n in df['wardname']] 
+#Printing a list of ward names to inspect the data
+print(names) 
