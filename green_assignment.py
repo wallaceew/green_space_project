@@ -164,8 +164,8 @@ else:
 for missing_val in missing_values:
     landcover_names[missing_val] = f"Unknown_{missing_val}"
 
-# Recount unique landcover classes in the Liverpool landuse raster
+# Count unique landcover classes in the Liverpool landuse raster
 landcover_count = count_unique(landcover, landcover_names)
-print(landcover_count)  # Show the updated results
+print(landcover_count)  # Show the results
 
 
