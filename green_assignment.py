@@ -147,3 +147,25 @@ def count_unique(array, names, nodata=0):
         count_dict[names[val]] = np.count_nonzero(array == val)
     return count_dict  # Return the now-populated output dict
 
+
+# Check unique values in the Liverpool landuse raster
+unique_values = np.unique(landcover)
+
+# Compare unique values with keys in the landcover_names dictionary
+missing_values = [val for val in unique_values if val not in landcover_names.keys()]
+
+# Display missing values
+if missing_values:
+    print("The following values are missing from the landcover_names dictionary:", missing_values)
+else:
+    print("All unique values in the landcover raster are accounted for in the landcover_names dictionary.")
+
+# Update the landcover_names dictionary to include missing values
+for missing_val in missing_values:
+    landcover_names[missing_val] = f"Unknown_{missing_val}"
+
+# Recount unique landcover classes in the Liverpool landuse raster
+landcover_count = count_unique(landcover, landcover_names)
+print(landcover_count)  # Show the updated results
+
+
