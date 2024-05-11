@@ -172,3 +172,11 @@ print(landcover_count)  # Show the results
 names = [n.title() for n in df['wardname']] 
 #Printing a list of ward names to inspect the data
 print(names) 
+
+# Add landcover stats to the wards table
+short_names = ['broadleaf', 'coniferous', 'arable', 'imp_grass', 'nat_grass',
+               'mountain', 'saltwater', 'freshwater', 'coastal', 'built_up',
+               'neutral_grass', 'calcareous_grass', 'acid_grass', 'heather',
+               'heather_grass', 'fen_marsh_swamp', 'bog', 'inland_rock', 'urban',
+               'suburban', 'supra_littoral_rock', 'supra_littoral_sediment', 'littoral_rock']
+short_dict = dict(zip(names, short_names))
