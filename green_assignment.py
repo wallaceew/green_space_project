@@ -33,6 +33,8 @@ with rio.open("C:/EGM722/egm722/green_space_project/raster/LCM2015_LP.tif") as s
 with rio.open('C:/EGM722/egm722/green_space_project/ASTGTM/ASTGTMV003_N53W003_dem.tif') as dataset:
     # read first band of the DEM file (1) which contains the elevation data
     dem = dataset.read(1)
+    # get the affine transformation matrix of the DEM raster - matrix defines the mapping from pixel to geographic coordinates
+    affine_dem = src.transform
 
 
 
