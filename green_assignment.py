@@ -11,6 +11,15 @@ import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import rasterstats
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+# import rasterize from rasterio features 
+from rasterio.features import rasterize
+import pandas as pd
+import geopandas as gpd
+import folium
+
 
 # obtained data LCM data for Liverpool to rasterise and create land cover map
 # find all names of land cover using metadata of LCM.tif online 
