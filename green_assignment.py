@@ -21,6 +21,17 @@ import geopandas as gpd
 import folium
 
 
+# DEM work - rasterising wards dataset to produce dem of Liverpool wards
+
+# Load the landcover raster
+with rio.open("C:/EGM722/egm722/green_space_project/raster/LCM2015_LP.tif") as src:
+    landcover = src.read(1)
+    affine_tfm = src.transform
+
+
+
+
+
 # obtained data LCM data for Liverpool to rasterise and create land cover map
 # find all names of land cover using metadata of LCM.tif online 
 
