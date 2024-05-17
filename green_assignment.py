@@ -31,6 +31,8 @@ with rio.open("C:/EGM722/egm722/green_space_project/raster/LCM2015_LP.tif") as s
 #Open DEM GeoTIFF file using rasterio
 # 'with' statement ensures that the file is closed after reading 
 with rio.open('C:/EGM722/egm722/green_space_project/ASTGTM/ASTGTMV003_N53W003_dem.tif') as dataset:
+    # read first band of the DEM file (1) which contains the elevation data
+    dem = dataset.read(1)
 
 
 
