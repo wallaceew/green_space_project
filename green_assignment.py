@@ -1,24 +1,45 @@
-
-
-# zonal statistics using rasterstats
-
-# importing libraries
+# Importing libraries
 %matplotlib inline
-
+import numpy as np
+import rasterio as rio
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+from rasterio.features import rasterize
+import folium
 import numpy as np
 import rasterio as rio
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import rasterstats
-import geopandas as gpd
-import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-# import rasterize from rasterio features 
 from rasterio.features import rasterize
-import pandas as pd
-import geopandas as gpd
-import folium
+
+
+
+# Adding functions to begin work
+
+# Function for loading raster data
+def load_raster(file_path):
+    """
+    Load a raster file and return the data and affine transformation.
+    
+    Parameters:
+    file_path (str): Path to the raster file.
+    
+    Returns:
+    tuple: A tuple containing the raster data array and the affine transformation.
+    """
+    with rio.open(file_path) as src:
+        return src.read(1), src.transform
+
+
+
+
+
+
 
 
 # DEM work - rasterising wards dataset to produce dem of Liverpool wards
