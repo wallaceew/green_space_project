@@ -215,6 +215,11 @@ liverpool_wards.plot(ax=ax, color='none', edgecolor='black')
 # Overlay the land cover raster on top of the wards
 im = ax.imshow(landcover, cmap='terrain', extent=(xmin, xmax, ymin, ymax), alpha=0.5)
 
+# Add a colourbar for the land cover raster
+divider = make_axes_locatable(ax)
+cax = divider.append_axes("right", size="5%", pad=0.05)
+cbar = fig.colorbar(im, cax=cax)
+cbar.set_label('Land Cover Class')
 
 
 
