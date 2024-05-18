@@ -91,6 +91,10 @@ with rio.open('C:/EGM722/egm722/green_space_project/ASTGTM/ASTGTMV003_N53W003_de
 # Loading the wards shapefile
 df = gpd.read_file("C:/EGM722/egm722/green_space_project/data_files/Lwards.shp")
 
+# Rasterizing the wards
+# 'rasterize_wards' function converts vector data to raster format - 'df' is the geodataframe with the ward boundaries
+# landcover.shape provides the dimensions of the output raster, affine_tfm ensures spatial alignment with the landcover raster
+wards_mask = rasterize_wards(df, landcover.shape, affine_tfm)
 
 
 
