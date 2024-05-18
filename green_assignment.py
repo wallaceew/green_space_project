@@ -190,7 +190,11 @@ def count_unique(array, names, nodata=0):
 # Get counts of unique landcover classes in Liverpool
 landcover_count = count_unique(landcover, landcover_names)
 
+# Calculate percentage area covered by each landcover class in Liverpool
+total_pixels = np.count_nonzero(landcover != 0)  # Total non-zero pixels (excluding nodata)
+percentage_area = {key: (value / total_pixels) * 100 for key, value in landcover_count.items()}
 
+print(percentage_area)  # Show the results
 
 
 
