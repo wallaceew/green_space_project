@@ -101,6 +101,12 @@ wards_mask = rasterize_wards(df, landcover.shape, affine_tfm)
 display_rasterized_wards(wards_mask, cmap='pink')
 
 
+# Further exploring the DEM
+# Displaying a visualisation of two specific wards - City Centre North (ccnorth) and City Centre South (ccsouth)
+# Creates a boolean mask (ccnorth_and_ccsouth) where condition 'True' is assigned to ward 12 and ward 13, while 'False' is assigned to other wards
+# np.logical combines these two conditions - map can then be displayed as before with only the two wards showing
+ccnorth_and_ccsouth = np.logical_or(wards_mask == 12, wards_mask == 13)
+
 
 
 
