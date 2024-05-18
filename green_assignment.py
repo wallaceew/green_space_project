@@ -115,6 +115,14 @@ ccnorth_and_ccsouth_resized = np.resize(ccnorth_and_ccsouth, dem.shape)
 # Index the dem array using the resized boolean mask to select elevation values corresponding to 'True' values in the mask
 NS_elevation = dem[ccnorth_and_ccsouth_resized]
 
+# Plotting City Centre North and City Centre South
+# Creates a new figure (fig) and axis (ax) for the new subplot
+fig, ax = plt.subplots(1, 1)
+# Displays boolean mask that represents city centre north and south (ax.imshow) while specifying pink colouring for map output
+ax.imshow(ccnorth_and_ccsouth, cmap='pink')
+# Show the plot
+plt.show()
+
 
 
 
