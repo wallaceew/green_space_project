@@ -162,45 +162,39 @@ with rio.open('C:/EGM722/egm722/green_space_project/raster/LCM2015_Liverpool.tif
     affine_tfm = dataset.transform
 
 # Load the Liverpool wards shapefile
-wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wards.shp').to_crs(crs)
+liverpool_wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wards.shp').to_crs(crs)
 
 # inspect data 
-print(wards)
+print(liverpool_wards)
 
-# Define a function to count unique landcover classes
+# Define a function to count unique elements of an array
 def count_unique(array, names, nodata=0):
-    '''
-    Count the unique elements of an array.
-
-    :param array: Input array
-    :param names: a dict of key/value pairs that map raster values to a name
-    :param nodata: nodata value to ignore in the counting
-
-    :returns count_dict: a dictionary of unique values and counts
-    '''
-    count_dict = dict()  # Create the output dict
-    for val in np.unique(array):  # Iterate over the unique values for the raster
-        if val == nodata:  # If the value is equal to our nodata value, move on to the next one
+    """
+    Count unique elements of an array.
+    
+    Parameters:
+    array (ndarray): Input array.
+    names (list): List of names corresponding to array values.
+    nodata (int): Nodata value (default is 0).
+    
+    Returns:
+    dict: Dictionary containing counts of unique elements.
+    """
+    count_dict = dict()
+    for val in np.unique(array):
+        if val == nodata:
             continue
         count_dict[names[val]] = np.count_nonzero(array == val)
-    return count_dict  # Return the now-populated output dict
+    return count_dict
+
+# Get counts of unique landcover classes in Liverpool
+landcover_count = count_unique(landcover, landcover_names)
 
 
-# Check unique values in the Liverpool landuse raster
-unique_values = np.unique(landcover)
 
-# Compare unique values with keys in the landcover_names dictionary
-missing_values = [val for val in unique_values if val not in landcover_names.keys()]
 
-# Display missing values
-if missing_values:
-    print("The following values are missing from the landcover_names dictionary:", missing_values)
-else:
-    print("All unique values in the landcover raster are accounted for in the landcover_names dictionary.")
 
-# Update the landcover_names dictionary to include missing values
-for missing_val in missing_values:
-    landcover_names[missing_val] = f"Unknown_{missing_val}"
+
 
 # Count unique landcover classes in the Liverpool landuse raster
 landcover_count = count_unique(landcover, landcover_names)
