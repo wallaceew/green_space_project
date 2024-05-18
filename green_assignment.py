@@ -112,6 +112,9 @@ ccnorth_and_ccsouth = np.logical_or(wards_mask == 12, wards_mask == 13)
 # Resizing the boolean mask to match the shape of the DEM array
 ccnorth_and_ccsouth_resized = np.resize(ccnorth_and_ccsouth, dem.shape)
 
+# Index the dem array using the resized boolean mask to select elevation values corresponding to 'True' values in the mask
+NS_elevation = dem[ccnorth_and_ccsouth_resized]
+
 
 
 
