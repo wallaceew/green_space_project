@@ -60,13 +60,15 @@ def display_rasterized_wards(wards_mask, cmap='viridis'):
     Parameters:
     wards_mask (ndarray): A numpy array where each pixel value represents a ward. 
                           The array is a rasterized version of the ward boundaries.
-    cmap (str): The color map to use for displaying the rasterized wards. Default is 'viridis'.
+    cmap (str): The colour map to use for displaying the rasterized wards. Default is 'viridis'.
     """
     fig, ax = plt.subplots(1, 1)
     im = ax.imshow(wards_mask, cmap=cmap)
     fig.colorbar(im)
     plt.show()
 
+# Get a list of all available colormaps
+colormaps = plt.colormaps()
 
 
 
