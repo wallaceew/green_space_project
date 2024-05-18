@@ -75,6 +75,8 @@ print("Available colourmaps:")
 for cmap in colormaps:
     print(cmap)
 
+# Load the landcover raster
+landcover, affine_tfm = load_raster("C:/EGM722/egm722/green_space_project/raster/LCM2015_LP.tif")
 
 
 
