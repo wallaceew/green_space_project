@@ -197,6 +197,14 @@ percentage_area = {key: (value / total_pixels) * 100 for key, value in landcover
 print(percentage_area)  # Show the results
 
 
+# Use rasterstats to get zonal statistics for Liverpool wards
+liverpool_stats = rasterstats.zonal_stats(liverpool_wards,  # Liverpool wards shapefile
+                                          landcover,  # Liverpool landcover raster
+                                          affine=affine_tfm,  # Geotransform of the raster
+                                          categorical=True,  # Categorical data
+                                          category_map=landcover_names,  # Mapping of categories
+                                          nodata=0)  # Nodata value of the raster
+
 
 
 
@@ -216,3 +224,10 @@ short_names = ['broadleaf', 'coniferous', 'arable', 'imp_grass', 'nat_grass',
                'heather_grass', 'fen_marsh_swamp', 'bog', 'inland_rock', 'urban',
                'suburban', 'supra_littoral_rock', 'supra_littoral_sediment', 'littoral_rock']
 short_dict = dict(zip(names, short_names))
+
+
+
+
+
+
+
