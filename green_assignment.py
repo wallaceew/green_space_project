@@ -88,6 +88,9 @@ with rio.open('C:/EGM722/egm722/green_space_project/ASTGTM/ASTGTMV003_N53W003_de
     # Matrix can be used to convert between pixel and spatial coordinates (i.e. row/column to latitude/longitude)
     affine_dem = dataset.transform
 
+# Loading the wards shapefile
+df = gpd.read_file("C:/EGM722/egm722/green_space_project/data_files/Lwards.shp")
+
 
 
 
