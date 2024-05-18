@@ -108,6 +108,10 @@ display_rasterized_wards(wards_mask, cmap='pink')
 ccnorth_and_ccsouth = np.logical_or(wards_mask == 12, wards_mask == 13)
 
 
+# Troubleshooting - error (IndexError: boolean index did not match indexed array along dimension 0; dimension is 3601 but corresponding boolean dimension is 660)
+# Resizing the boolean mask to match the shape of the DEM array
+ccnorth_and_ccsouth_resized = np.resize(ccnorth_and_ccsouth, dem.shape)
+
 
 
 
