@@ -212,6 +212,9 @@ print(liverpool_stats[0])  # Show zonal statistics for the first Liverpool ward
 fig, ax = plt.subplots(figsize=(10, 10))
 liverpool_wards.plot(ax=ax, color='none', edgecolor='black')
 
+# Overlay the land cover raster on top of the wards
+im = ax.imshow(landcover, cmap='terrain', extent=(xmin, xmax, ymin, ymax), alpha=0.5)
+
 
 
 
