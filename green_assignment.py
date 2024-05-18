@@ -235,6 +235,8 @@ ax.set_title('Land Cover Map of Liverpool with Wards')
 ax.set_xlabel('Longitude')
 ax.set_ylabel('Latitude')
 
+# Show the plot
+plt.show()
 
 
 
