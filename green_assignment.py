@@ -52,8 +52,20 @@ def rasterize_wards(df, landcover_shape, landcover_transform):
     return rasterize(shapes=wards_shapes, fill=0, out_shape=landcover_shape,
                      transform=landcover_transform, dtype=np.uint8)
 
+# Function for displaying rasterised wards - using cmap to allow user to select colour of their choice
+def display_rasterized_wards(wards_mask, cmap='viridis'):
+    """
+    Display a visual representation of the rasterized wards.
 
-
+    Parameters:
+    wards_mask (ndarray): A numpy array where each pixel value represents a ward. 
+                          The array is a rasterized version of the ward boundaries.
+    cmap (str): The color map to use for displaying the rasterized wards. Default is 'viridis'.
+    """
+    fig, ax = plt.subplots(1, 1)
+    im = ax.imshow(wards_mask, cmap=cmap)
+    fig.colorbar(im)
+    plt.show()
 
 
 
