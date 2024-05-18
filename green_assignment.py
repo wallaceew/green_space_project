@@ -96,6 +96,15 @@ df = gpd.read_file("C:/EGM722/egm722/green_space_project/data_files/Lwards.shp")
 # landcover.shape provides the dimensions of the output raster, affine_tfm ensures spatial alignment with the landcover raster
 wards_mask = rasterize_wards(df, landcover.shape, affine_tfm)
 
+# Visualising the rasterized output using 'display_rasterized_wards' function 
+# 'wards_mask' contains the rasterized data and 'cmap' specifies colour for map visualisation - in this case, pink
+display_rasterized_wards(wards_mask, cmap='pink')
+
+
+
+
+
+
 
 
 
