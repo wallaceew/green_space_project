@@ -1,3 +1,12 @@
+# Ignore specific Jupyter Notebook files
+FinalEdits.ipynb
+Ward.ipynb
+Earthaccesstest.ipynb
+
+# Ignore specific Python script
+testing.py
+
+
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
