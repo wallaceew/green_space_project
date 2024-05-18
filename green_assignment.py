@@ -207,26 +207,10 @@ liverpool_stats = rasterstats.zonal_stats(liverpool_wards,  # Liverpool wards sh
 
 print(liverpool_stats[0])  # Show zonal statistics for the first Liverpool ward
 
-
-
-
-
-# Count unique landcover classes in the Liverpool landuse raster
-landcover_count = count_unique(landcover, landcover_names)
-print(landcover_count)  # Show the results
-
-# Getting a list of ward names using a list comprehension formatted with str.title() for lowercase
-names = [n.title() for n in df['wardname']] 
-#Printing a list of ward names to inspect the data
-print(names) 
-
-# Add landcover stats to the wards table
-short_names = ['broadleaf', 'coniferous', 'arable', 'imp_grass', 'nat_grass',
-               'mountain', 'saltwater', 'freshwater', 'coastal', 'built_up',
-               'neutral_grass', 'calcareous_grass', 'acid_grass', 'heather',
-               'heather_grass', 'fen_marsh_swamp', 'bog', 'inland_rock', 'urban',
-               'suburban', 'supra_littoral_rock', 'supra_littoral_sediment', 'littoral_rock']
-short_dict = dict(zip(names, short_names))
+# Plotting the processed data with an overlay of the ward boundaries to see where different land cover is most prominent 
+# Plot the Liverpool wards with boundaries
+fig, ax = plt.subplots(figsize=(10, 10))
+liverpool_wards.plot(ax=ax, color='none', edgecolor='black')
 
 
 
