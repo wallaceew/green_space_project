@@ -230,6 +230,11 @@ classes = ['Broadleaf woodland', 'Coniferous woodland', 'Arable and Horticulture
 cbar.set_ticks(range(len(classes)))
 cbar.set_ticklabels(classes)
 
+# Set title and axis labels
+ax.set_title('Land Cover Map of Liverpool with Wards')
+ax.set_xlabel('Longitude')
+ax.set_ylabel('Latitude')
+
 
 
 
