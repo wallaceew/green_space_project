@@ -70,7 +70,10 @@ def display_rasterized_wards(wards_mask, cmap='viridis'):
 # Get a list of all available colormaps
 colormaps = plt.colormaps()
 
-
+# Print the list of colourmaps
+print("Available colourmaps:")
+for cmap in colormaps:
+    print(cmap)
 
 
 
