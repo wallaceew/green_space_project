@@ -35,6 +35,32 @@ def load_raster(file_path):
     with rio.open(file_path) as src:
         return src.read(1), src.transform
 
+# Function for rasterizing wards
+def rasterize_wards(df, landcover_shape, landcover_transform):
+     """
+    Converts ward boundaries into a raster format.
+
+    Parameters:
+    df (GeoDataFrame): A GeoDataFrame containing the ward boundaries.
+    landcover_shape (tuple): The dimensions of the output raster (height, width).
+    landcover_transform (Affine): The affine transformation to align the raster with the landcover data.
+
+    Returns:
+    ndarray: A numpy array representing the rasterized ward boundaries.
+    """
+    wards_shapes = list(zip(df['geometry'], df['WARDNUMBER']))
+    return rasterize(shapes=wards_shapes, fill=0, out_shape=landcover_shape,
+                     transform=landcover_transform, dtype=np.uint8)
+
+
+
+
+
+
+
+
+
+
 
 
 
