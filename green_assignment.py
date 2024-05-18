@@ -205,6 +205,9 @@ liverpool_stats = rasterstats.zonal_stats(liverpool_wards,  # Liverpool wards sh
                                           category_map=landcover_names,  # Mapping of categories
                                           nodata=0)  # Nodata value of the raster
 
+print(liverpool_stats[0])  # Show zonal statistics for the first Liverpool ward
+
+
 
 
 
