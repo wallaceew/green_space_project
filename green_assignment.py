@@ -135,30 +135,7 @@ print('Mean elevation: {:.2f} m'.format(NS_elevation.mean()))
 
 
 
-
-
-# DEM work - rasterising wards dataset to produce dem of Liverpool wards
-
-# Load the landcover raster
-with rio.open("C:/EGM722/egm722/green_space_project/raster/LCM2015_LP.tif") as src:
-    landcover = src.read(1)
-    affine_tfm = src.transform
-
-#Open DEM GeoTIFF file using rasterio
-# 'with' statement ensures that the file is closed after reading 
-with rio.open('C:/EGM722/egm722/green_space_project/ASTGTM/ASTGTMV003_N53W003_dem.tif') as dataset:
-    # read first band of the DEM file (1) which contains the elevation data
-    dem = dataset.read(1)
-    # get the affine transformation matrix of the DEM raster - matrix defines the mapping from pixel to geographic coordinates
-    affine_dem = src.transform
-
-# Load the wards shapefile
-df = gpd.read_file("C:/EGM722/egm722/green_space_project/data_files/Lwards.shp")
-
-
-
-
-
+# zonal statistics using rasterstats
 
 
 
@@ -189,20 +166,6 @@ wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wards.shp
 
 # inspect data 
 print(wards)
-
-# getting rid of spaces in ward names 
-
-data = {
-    'wardname': ['Aigburth', 'Childwall', 'Church', 'City Centre North', 'City Centre South', 'Clubmoor East', 'Clubmoor West', 'County', 'Croxteth', 'Croxteth Country Park', 'Dingle', 'Allerton', 'Edge Hill', 'Everton East', 'Everton North', 'Everton West', 'Fazakerley East', 'Fazakerley North', 'Fazakerley West', 'Festival Gardens', 'Garston', 'Gateacre', 'Anfield', 'Grassendale & Cressington', 'Greenbank Park', 'Kensington & Fairfield', 'Kirkdale East', 'Kirkdale West', 'Knotty Ash & Dovecot Park', 'Mossley Hill', 'Much Woolton & Hunts Cross', 'Norris Green', 'Old Swan East', 'Arundel', 'Old Swan West', 'Orrell Park', 'Penny Lane', 'Princes Park', 'Sandfield Park', 'Sefton Park', 'Smithdown', 'Speke', 'Springwood', 'St Michaels', 'Belle Vale', 'Stoneycroft', 'Toxteth', 'Tuebrook Breckside Park', 'Tuebrook Larkhill', 'Vauxhall', 'Walton', 'Waterfront North', 'Waterfront South', 'Wavertree Garden Suburb', 'Wavertree Village', 'Broadgreen', 'West Derby Deysbrook', 'West Derby Leyfield', 'West Derby Muirhead', 'Woolton Village', 'Yew Tree', 'Brownlow Hill', 'Calderstones', 'Canning']
-              }
-
-# creating data frame from data to edit wardname column
-df = pd.DataFrame(data)
-
-# replace spaces in 'wardname' with underscore
-df['wardname'] = df['wardname'].str.replace(" ", "_")
-
-print(df)
 
 # Define a function to count unique landcover classes
 def count_unique(array, names, nodata=0):
