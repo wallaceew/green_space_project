@@ -123,7 +123,11 @@ ax.imshow(ccnorth_and_ccsouth, cmap='pink')
 # Show the plot
 plt.show()
 
+# Print the mean elevation - calculating mean and setting up an output statement to display the result ({:.2f} m) 
+# Using NS_elevation - the values selected earlier from the mask that represent the specified wards of interest
+print('Mean elevation: {:.2f} m'.format(NS_elevation.mean()))
 
+# The above has allowed us to get to know the area and data better, setting us up for further exploration of the cities green spaces
 
 
 
