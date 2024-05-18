@@ -75,9 +75,18 @@ print("Available colourmaps:")
 for cmap in colormaps:
     print(cmap)
 
-# Load the landcover raster
+# Load the landcover raster - opened using the 'load_raster' function to read raster data and its affine transformation 
 landcover, affine_tfm = load_raster("C:/EGM722/egm722/green_space_project/raster/LCM2015_LP.tif")
+# 'landcover' now holds the land cover data from the raster, while 'affine_tfm' holds the affine transformation info
 
+# Opening the DEM GeoTIFF file using rasterio
+# 'With' statement makes sure the file is closed properly after processing
+with rio.open('C:/EGM722/egm722/green_space_project/ASTGTM/ASTGTMV003_N53W003_dem.tif') as dataset:
+    # Reading the first band of the dataset into 'dem' - first band is the elevation data
+    dem = dataset.read(1)
+    # Extracting affine transformation matrix of dataset
+    # Matrix can be used to convert between pixel and spatial coordinates (i.e. row/column to latitude/longitude)
+    affine_dem = dataset.transform
 
 
 
