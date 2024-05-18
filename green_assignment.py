@@ -221,6 +221,15 @@ cax = divider.append_axes("right", size="5%", pad=0.05)
 cbar = fig.colorbar(im, cax=cax)
 cbar.set_label('Land Cover Class')
 
+# Add legend for land cover classes
+classes = ['Broadleaf woodland', 'Coniferous woodland', 'Arable and Horticulture', 'Improved grassland', 
+           'Semi-natural grassland', 'Mountain, heath, bog', 'Saltwater', 'Freshwater', 'Coastal', 
+           'Built-up areas and gardens', 'Neutral Grassland', 'Calcareous Grassland', 'Acid Grassland', 
+           'Heather', 'Heather grassland', 'Fen, Marsh and Swamp', 'Bog', 'Inland Rock', 'Urban', 
+           'Suburban', 'Supra-littoral Rock', 'Supra-littoral Sediment', 'Littoral Rock']
+cbar.set_ticks(range(len(classes)))
+cbar.set_ticklabels(classes)
+
 
 
 
