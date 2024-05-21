@@ -267,7 +267,18 @@ folium.GeoJson(
     tooltip='wardname'
 ).add_to(m)
 
-
+# Adding the parks layer
+folium.GeoJson(
+    parks_gdf,
+    name='Parks',
+    style_function=lambda x: {
+        'fillColor': 'green',
+        'color': 'green',
+        'weight': 1,
+        'fillOpacity': 0.6
+    },
+    tooltip='Name'
+).add_to(m)
 
 
 
