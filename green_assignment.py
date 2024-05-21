@@ -301,3 +301,15 @@ folium.GeoJson(
     tooltip=folium.features.GeoJsonTooltip(fields=['landuse'])
 ).add_to(m)
 
+# Add water layer
+folium.GeoJson(
+    water_gdf,
+    name='Water Bodies',
+    style_function=lambda x: {
+        'fillColor': 'blue',
+        'color': 'blue',
+        'weight': 1,
+        'fillOpacity': 0.6
+    }
+).add_to(m)
+
