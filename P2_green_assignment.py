@@ -85,3 +85,9 @@ with rasterio.open(merged_output_path, 'w', driver='GTiff',
 
 # Define Liverpool's bounding box in WGS84 (EPSG:4326) coordinates
 liverpool_bbox_wgs84 = {'left': -3.1, 'right': -2.7, 'bottom': 53.30, 'top': 53.55}
+
+# Open the merged dataset to read the data
+with rasterio.open(merged_output_path) as src:
+    data = src.read(1)  # Read the first band
+    crs = src.crs  # Get the CRS of the dataset
+    extent = src.bounds  # Get the extent of the dataset
