@@ -63,3 +63,8 @@ def hdf_to_geotiff(hdf_file, output_dir):
 hdf_files = [file for file in os.listdir(ds_name) if file.endswith('.hdf')]
 output_dir = 'C:\\EGM722\\egm722\\green_space_project\\preprocessed_geotiffs'
 os.makedirs(output_dir, exist_ok=True)  # Create the output directory if it doesn't exist
+
+geotiff_files = []
+for hdf_file in hdf_files:
+    geotiff_file = hdf_to_geotiff(os.path.join(ds_name, hdf_file), output_dir)
+    geotiff_files.append(geotiff_file)
