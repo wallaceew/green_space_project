@@ -82,3 +82,6 @@ with rasterio.open(merged_output_path, 'w', driver='GTiff',
                    count=1, dtype=merged_dataset.dtype,
                    crs=merged_crs, transform=merged_transform) as dst:
     dst.write(merged_dataset[0], 1)
+
+# Define Liverpool's bounding box in WGS84 (EPSG:4326) coordinates
+liverpool_bbox_wgs84 = {'left': -3.1, 'right': -2.7, 'bottom': 53.30, 'top': 53.55}
