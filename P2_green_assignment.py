@@ -23,3 +23,7 @@ datasets = earthaccess.search_datasets(
     keyword='vegetation indices',  # Search for vegetation indices datasets
     polygon=search_area.exterior.coords  # Use the search area defined above
 )
+
+# Select the first dataset from the search results
+dataset = datasets[0]
+ds_name = dataset.get_umm('ShortName')  # Get the short name of the dataset
