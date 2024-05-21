@@ -11,3 +11,8 @@ from osgeo import gdal  # For handling and converting geospatial data formats
 
 # Load ward boundaries shapefile and convert to WGS84 coordinate reference system (CRS)
 wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wardsPolygon.shp').to_crs(epsg=4326)
+
+# Create a single polygon from the ward boundaries to define the search area
+outline = wards['geometry'].unary_union
+search_area = outline.minimum_rotated_rectangle  # Get the minimum bounding rectangle
+search_area = shapely.geometry.polygon.orient(search_area, sign=1)  # Ensure the polygon vertices are in a counter-clockwise order
