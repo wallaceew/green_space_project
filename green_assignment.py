@@ -254,6 +254,19 @@ folium.Choropleth(
     smooth_factor=0
 ).add_to(m)
 
+# Add wards layer
+folium.GeoJson(
+    wards_gdf,
+    name='Wards',
+    style_function=lambda x: {
+        'fillColor': 'transparent',
+        'color': 'black',
+        'weight': 1,
+        'fillOpacity': 0.6
+    },
+    tooltip='wardname'
+).add_to(m)
+
 
 
 
