@@ -34,3 +34,6 @@ results = earthaccess.search_data(
     polygon=search_area.exterior.coords,
     count=10  # Limit the search to the first 10 results
 )
+
+# Create a directory for the dataset if it doesn't exist
+os.makedirs(ds_name, exist_ok=True)
