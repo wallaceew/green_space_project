@@ -27,3 +27,10 @@ datasets = earthaccess.search_datasets(
 # Select the first dataset from the search results
 dataset = datasets[0]
 ds_name = dataset.get_umm('ShortName')  # Get the short name of the dataset
+
+# Search for data granules within the dataset and the search area
+results = earthaccess.search_data(
+    short_name=ds_name,
+    polygon=search_area.exterior.coords,
+    count=10  # Limit the search to the first 10 results
+)
