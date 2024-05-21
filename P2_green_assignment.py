@@ -75,3 +75,10 @@ merged_output_path = 'C:\\EGM722\\egm722\\green_space_project\\merged_dataset.ti
 src_files_to_merge = [rasterio.open(file) for file in geotiff_files]
 merged_dataset, merged_transform = rasterio.merge.merge(src_files_to_merge)
 merged_crs = src_files_to_merge[0].crs  # Get the CRS of the merged dataset
+
+# Write the merged dataset to a new GeoTIFF file
+with rasterio.open(merged_output_path, 'w', driver='GTiff',
+                   height=merged_dataset.shape[1], width=merged_dataset.shape[2],
+                   count=1, dtype=merged_dataset.dtype,
+                   crs=merged_crs, transform=merged_transform) as dst:
+    dst.write(merged_dataset[0], 1)
