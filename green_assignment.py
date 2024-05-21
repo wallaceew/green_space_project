@@ -327,3 +327,6 @@ for idx, row in bus_stops_gdf.iterrows():
 
 # Add layer control
 folium.LayerControl().add_to(m)
+
+# Display the map
+m
