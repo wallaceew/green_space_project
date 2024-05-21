@@ -239,6 +239,21 @@ plt.show()
 # Creating an interactive map centered on Liverpool using folium
 m = folium.Map(location=map_center, zoom_start=12)
 
+# Adding the bus stop choropleth layer
+folium.Choropleth(
+    geo_data=wards_gdf,
+    name='Bus Stops per Ward',
+    data=wards_gdf,
+    columns=['wardname', 'bus_stop_count'],
+    key_on='feature.properties.wardname',
+    fill_color='YlGn',
+    fill_opacity=0.7,
+    line_opacity=0.2,
+    legend_name='Bus Stops per Ward',
+    highlight=True,
+    smooth_factor=0
+).add_to(m)
+
 
 
 
