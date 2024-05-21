@@ -40,3 +40,21 @@ os.makedirs(ds_name, exist_ok=True)
 
 # Download the data granules
 downloaded_files = earthaccess.download(results, ds_name)
+
+# Define a function to convert HDF files to GeoTIFF format
+def hdf_to_geotiff(hdf_file, output_dir):
+    """
+    Convert an HDF file to GeoTIFF format.
+
+    Parameters:
+        hdf_file (str): Path to the input HDF file.
+        output_dir (str): Directory where the output GeoTIFF file will be saved.
+
+    Returns:
+        str: Path to the output GeoTIFF file.
+    """
+    hdf_ds = gdal.Open(hdf_file)  # Open the HDF file
+    subdataset = hdf_ds.GetSubDatasets()[0][0]  # Get the first subdataset
+    output_file = os.path.join(output_dir, os.path.basename(hdf_file).replace('.hdf', '.tif'))  # Define the output file path
+    gdal.Translate(output_file, subdataset, format='GTiff')  # Convert the subdataset to GeoTIFF format
+    return output_file  # Return the path to the output GeoTIFF file
