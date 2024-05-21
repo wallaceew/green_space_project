@@ -16,3 +16,10 @@ wards = gpd.read_file('C:/EGM722/egm722/green_space_project/data_files/wardsPoly
 outline = wards['geometry'].unary_union
 search_area = outline.minimum_rotated_rectangle  # Get the minimum bounding rectangle
 search_area = shapely.geometry.polygon.orient(search_area, sign=1)  # Ensure the polygon vertices are in a counter-clockwise order
+
+# Log-in and search for datasets using earthaccess
+earthaccess.login(strategy='interactive', persist=True)
+datasets = earthaccess.search_datasets(
+    keyword='vegetation indices',  # Search for vegetation indices datasets
+    polygon=search_area.exterior.coords  # Use the search area defined above
+)
