@@ -68,3 +68,10 @@ geotiff_files = []
 for hdf_file in hdf_files:
     geotiff_file = hdf_to_geotiff(os.path.join(ds_name, hdf_file), output_dir)
     geotiff_files.append(geotiff_file)
+
+
+# Merge the GeoTIFF files into a single dataset
+merged_output_path = 'C:\\EGM722\\egm722\\green_space_project\\merged_dataset.tif'
+src_files_to_merge = [rasterio.open(file) for file in geotiff_files]
+merged_dataset, merged_transform = rasterio.merge.merge(src_files_to_merge)
+merged_crs = src_files_to_merge[0].crs  # Get the CRS of the merged dataset
