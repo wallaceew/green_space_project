@@ -37,3 +37,6 @@ results = earthaccess.search_data(
 
 # Create a directory for the dataset if it doesn't exist
 os.makedirs(ds_name, exist_ok=True)
+
+# Download the data granules
+downloaded_files = earthaccess.download(results, ds_name)
