@@ -236,4 +236,10 @@ plt.show()
 
 
 
+# Creating an interactive map centered on Liverpool using folium
+m = folium.Map(location=map_center, zoom_start=12)
+
+
+
+
 
