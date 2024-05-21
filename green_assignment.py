@@ -325,3 +325,5 @@ for idx, row in bus_stops_gdf.iterrows():
         tooltip='Bus Stop'
     ).add_to(m)
 
+# Add layer control
+folium.LayerControl().add_to(m)
