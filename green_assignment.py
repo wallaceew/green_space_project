@@ -280,5 +280,24 @@ folium.GeoJson(
     tooltip='Name'
 ).add_to(m)
 
-
+# Add landuse layer
+folium.GeoJson(
+    landuse_gdf,
+    name='Land Use',
+    style_function=lambda x: {
+        'fillColor': 'gray' if x['properties']['landuse'] == 'urban areas' else
+                     'khaki' if x['properties']['landuse'] == 'agricultural' else
+                     'palegreen' if x['properties']['landuse'] == 'natural vegetation' else
+                     'green' if x['properties']['landuse'] == 'parks' else
+                     'darkgreen',  # for vegetated areas
+        'color': 'gray' if x['properties']['landuse'] == 'urban areas' else
+                 'khaki' if x['properties']['landuse'] == 'agricultural' else
+                 'palegreen' if x['properties']['landuse'] == 'natural vegetation' else
+                 'green' if x['properties']['landuse'] == 'parks' else
+                 'darkgreen',
+        'weight': 1,
+        'fillOpacity': 0.6
+    },
+    tooltip=folium.features.GeoJsonTooltip(fields=['landuse'])
+).add_to(m)
 
