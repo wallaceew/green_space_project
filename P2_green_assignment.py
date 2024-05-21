@@ -58,3 +58,8 @@ def hdf_to_geotiff(hdf_file, output_dir):
     output_file = os.path.join(output_dir, os.path.basename(hdf_file).replace('.hdf', '.tif'))  # Define the output file path
     gdal.Translate(output_file, subdataset, format='GTiff')  # Convert the subdataset to GeoTIFF format
     return output_file  # Return the path to the output GeoTIFF file
+
+# Convert all downloaded HDF files to GeoTIFF format
+hdf_files = [file for file in os.listdir(ds_name) if file.endswith('.hdf')]
+output_dir = 'C:\\EGM722\\egm722\\green_space_project\\preprocessed_geotiffs'
+os.makedirs(output_dir, exist_ok=True)  # Create the output directory if it doesn't exist
