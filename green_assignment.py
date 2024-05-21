@@ -313,3 +313,15 @@ folium.GeoJson(
     }
 ).add_to(m)
 
+# Add bus stops layer
+for idx, row in bus_stops_gdf.iterrows():
+    folium.CircleMarker(
+        location=[row.geometry.y, row.geometry.x],  # Latitude and Longitude
+        radius=2,  # Adjust the size of the circle marker as needed
+        color='red',
+        fill=True,
+        fill_color='red',
+        fill_opacity=1,
+        tooltip='Bus Stop'
+    ).add_to(m)
+
