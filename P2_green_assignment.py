@@ -121,3 +121,6 @@ plt.ylim(liverpool_bbox['bottom'], liverpool_bbox['top'])
 wards = gpd.read_file('C:\\EGM722\\egm722\\green_space_project\\data_files\\wardsPolygon.shp')
 if wards.crs != crs:
     wards = wards.to_crs(crs)
+
+# Plot the ward boundaries on top of the raster data
+wards.boundary.plot(ax=plt.gca(), edgecolor='black')
