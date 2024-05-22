@@ -1,7 +1,5 @@
 # green_space_project
-Exploring urban green spaces
-
-# Green Space Project
+A project exploring urban green spaces across Liverpool City 
 
 ## Setup and Installation
 
