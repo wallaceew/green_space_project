@@ -98,3 +98,8 @@ out_proj = Proj(crs)
 left, bottom = transform(in_proj, out_proj, liverpool_bbox_wgs84['left'], liverpool_bbox_wgs84['bottom'])
 right, top = transform(in_proj, out_proj, liverpool_bbox_wgs84['right'], liverpool_bbox_wgs84['top'])
 liverpool_bbox = {'left': left, 'right': right, 'bottom': bottom, 'top': top}
+
+# Convert the data values from -2000 to 10000 to the actual NDVI/EVI values
+data = data.astype(float)  # Ensure the data is in float format
+data[data == -3000] = float('nan')  # Treat the fill value as NaN
+data = data / 10000.0  # Scale the data to the range of [-0.2, 1.0] for NDVI/EVI
