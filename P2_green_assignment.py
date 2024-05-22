@@ -112,3 +112,7 @@ plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.title('Green Space Map - Centered on Liverpool')
 plt.grid(True)
+
+# Set the extent to zoom into Liverpool
+plt.xlim(liverpool_bbox['left'], liverpool_bbox['right'])
+plt.ylim(liverpool_bbox['bottom'], liverpool_bbox['top'])
