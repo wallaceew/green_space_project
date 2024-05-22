@@ -103,3 +103,12 @@ liverpool_bbox = {'left': left, 'right': right, 'bottom': bottom, 'top': top}
 data = data.astype(float)  # Ensure the data is in float format
 data[data == -3000] = float('nan')  # Treat the fill value as NaN
 data = data / 10000.0  # Scale the data to the range of [-0.2, 1.0] for NDVI/EVI
+
+# Plot the data
+plt.figure(figsize=(10, 8))
+plt.imshow(data, cmap='RdYlGn', extent=(extent.left, extent.right, extent.bottom, extent.top), origin='upper')
+plt.colorbar(label='Vegetation Index')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Green Space Map - Centered on Liverpool')
+plt.grid(True)
