@@ -91,3 +91,10 @@ with rasterio.open(merged_output_path) as src:
     data = src.read(1)  # Read the first band
     crs = src.crs  # Get the CRS of the dataset
     extent = src.bounds  # Get the extent of the dataset
+
+# Transform Liverpool's bounding box coordinates to the CRS of the dataset
+in_proj = Proj(init='epsg:4326')
+out_proj = Proj(crs)
+left, bottom = transform(in_proj, out_proj, liverpool_bbox_wgs84['left'], liverpool_bbox_wgs84['bottom'])
+right, top = transform(in_proj, out_proj, liverpool_bbox_wgs84['right'], liverpool_bbox_wgs84['top'])
+liverpool_bbox = {'left': left, 'right': right, 'bottom': bottom, 'top': top}
