@@ -116,3 +116,8 @@ plt.grid(True)
 # Set the extent to zoom into Liverpool
 plt.xlim(liverpool_bbox['left'], liverpool_bbox['right'])
 plt.ylim(liverpool_bbox['bottom'], liverpool_bbox['top'])
+
+# Load the wards polygon shapefile and convert to the dataset's CRS if necessary
+wards = gpd.read_file('C:\\EGM722\\egm722\\green_space_project\\data_files\\wardsPolygon.shp')
+if wards.crs != crs:
+    wards = wards.to_crs(crs)
